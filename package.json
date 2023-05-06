@@ -2,7 +2,7 @@
   "name": "a04-meiqi-gu",
   "version": "1.0.0",
   "description": "Wrapping RPS/RPSLS in API endpoints using Express.js",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/comp426-2023-spring/a04-meiqi-gu/issues"
   },
-  "homepage": "https://github.com/comp426-2023-spring/a04-meiqi-gu#readme"
+  "homepage": "https://github.com/comp426-2023-spring/a04-meiqi-gu#readme",
+  "dependencies": {
+    "minimist": "^1.2.8"
+  }
 }
