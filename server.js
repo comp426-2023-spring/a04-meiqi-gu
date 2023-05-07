@@ -25,14 +25,14 @@ app.get('/app/rpsls/', (req, res) => {
     res.status(200).send(play); 
 }); 
 
-app.get('/app/rps/play/', (req, res) => {
-    const input = req.body.shot; 
+app.post('/app/rps/play/', (req, res) => {
+    const input = req.query.shot; 
     const play = rps(input); 
     res.status(200).send(play); 
 }); 
 
 app.get('/app/rps/play/', (req, res) => {
-    const input = req.body.short; 
+    const input = req.query.short; 
     const play = rpsls(input); 
     res.status(200).send(play); 
 })
