@@ -25,16 +25,21 @@ app.get('/app/rpsls/', (req, res) => {
     res.status(200).send(play); 
 }); 
 
-app.post('/app/rps/play/', (req, res) => {
+app.get('/app/rps/play/', (req, res) => {
     const input = req.query.shot; 
+    console.log(input); 
     const play = rps(input); 
+    console.log(play); 
     res.status(200).send(play); 
 }); 
 
-app.get('/app/rps/play/', (req, res) => {
-    const input = req.query.short; 
+app.post('/app/rps/play/', (req, res) => {
+    const input = req.body.short;
+    console.log(input); 
     const play = rpsls(input); 
-    res.status(200).send(play); 
+    console.log(play); 
+    res.send(play); 
+    res.end(); 
 })
 
 
