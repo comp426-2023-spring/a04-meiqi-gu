@@ -35,7 +35,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true})); 
 
 app.post('/app/rps/play/', (req, res) => {
-    const input = req.body.short;
+    const input = req.body.shot;
     const play = rpsls(input); 
     res.send(play); 
     res.end(); 
@@ -52,7 +52,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true})); 
 
 app.post('/app/rpsls/play/', (req, res) => {
-    const input = req.body.short;
+    const input = req.body.shot;
     const play = rpsls(input); 
     res.send(play); 
     res.end(); 
@@ -77,6 +77,6 @@ app.use(function(req, res) {
 }); 
 
 const server = app.listen(port, () => {
-    
+
 }); 
 
