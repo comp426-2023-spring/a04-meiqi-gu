@@ -14,6 +14,11 @@ app.use(function(req, res) {
     res.status(statusCode).end(statusCode+' '+statusMsg); 
 }); 
 
+// Check endpoint at /app/
+app.get("/app/", (req, res, next) => {
+    res.status(200).end('200 OK'); 
+}); 
+
 const server = app.listen(port, () => {
     console.log("Working.")
 }); 
