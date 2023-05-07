@@ -7,6 +7,11 @@ var app = express();
 const args = minimist(process.argv.slice(2)); 
 const port = args.port || args.p || process.env.PORT || 5000; 
 
+// Check endpoint at /app/
+app.get("/app/", (req, res, next) => {
+    res.status(200).end('200 OK'); 
+}); 
+
 // Default API endpoint
 app.use(function(req, res) {
     const statusCode = 404; 
@@ -14,10 +19,7 @@ app.use(function(req, res) {
     res.status(statusCode).end(statusCode+' '+statusMsg); 
 }); 
 
-// Check endpoint at /app/
-app.get("/app/", (req, res, next) => {
-    res.status(200).end('200 OK'); 
-}); 
+
 
 const server = app.listen(port, () => {
     console.log("Working.")
