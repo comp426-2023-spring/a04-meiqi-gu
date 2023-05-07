@@ -25,6 +25,17 @@ app.get('/app/rpsls/', (req, res) => {
     res.status(200).send(play); 
 }); 
 
+app.get('/app/rps/play/', (req, res) => {
+    const play = req.body.play; 
+    res.status(200).send(JSON.parse(rps(play))); 
+}); 
+
+app.post('/app/rps/play/', (req, res) => {
+    const play = req.body.play; 
+    res.send(JSON.parse(rps(play))); 
+    res.end(); 
+}); 
+
 // Endpoint /app/___/play/options/
 app.get('/app/rps/play/:input/', (req, res) => {
     const play = rps(req.params.input); 
