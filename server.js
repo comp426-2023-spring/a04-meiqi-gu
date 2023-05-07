@@ -24,25 +24,39 @@ app.get('/app/rpsls/', (req, res) => {
     res.status(200).send(play); 
 }); 
 
+// For RPS URL/JSON.
 app.get('/app/rps/play/', (req, res) => {
     const input = req.query.shot; 
-    console.log(input); 
     const play = rps(input); 
-    console.log(play); 
-    res.status(200).send(play); 
+    res.send(play); 
 }); 
+
 app.use(express.json()); 
 app.use(express.urlencoded({extended: true})); 
+
 app.post('/app/rps/play/', (req, res) => {
     const input = req.body.short;
-    console.log(input); 
     const play = rpsls(input); 
-    console.log(play); 
     res.send(play); 
     res.end(); 
-})
+}); 
 
+// For RPSLS URL/JSON. 
+app.get('/app/rpsls/play/', (req, res) => {
+    const input = req.query.shot; 
+    const play = rpsls(input); 
+    res.send(play); 
+}); 
 
+app.use(express.json()); 
+app.use(express.urlencoded({extended: true})); 
+
+app.post('/app/rpsls/play/', (req, res) => {
+    const input = req.body.short;
+    const play = rpsls(input); 
+    res.send(play); 
+    res.end(); 
+}); 
 
 // Endpoint /app/___/play/options/
 app.get('/app/rps/play/:input/', (req, res) => {
@@ -61,8 +75,6 @@ app.use(function(req, res) {
     const statusMsg = 'NOT FOUND'; 
     res.status(statusCode).end(statusCode+' '+statusMsg); 
 }); 
-
-
 
 const server = app.listen(port, () => {
     console.log("Working.")
