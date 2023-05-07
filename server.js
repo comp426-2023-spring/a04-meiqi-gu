@@ -3,8 +3,7 @@ import express from "express";
 import {rps, rpsls} from "./lib/rpsls.js";
 
 var app = express(); 
-app.use(express.json()); 
-app.use(express.urlencoded({extended: true})); 
+
 
 const args = minimist(process.argv.slice(2)); 
 const port = args.port || args.p || process.env.PORT || 5000; 
@@ -32,7 +31,8 @@ app.get('/app/rps/play/', (req, res) => {
     console.log(play); 
     res.status(200).send(play); 
 }); 
-
+app.use(express.json()); 
+app.use(express.urlencoded({extended: true})); 
 app.post('/app/rps/play/', (req, res) => {
     const input = req.body.short;
     console.log(input); 
