@@ -26,8 +26,16 @@ app.get('/app/rpsls/', (req, res) => {
 }); 
 
 app.get('/app/rps/play/', (req, res) => {
-
+    const input = req.body.shot; 
+    const play = rps(input); 
+    res.status(200).send(play); 
 }); 
+
+app.get('/app/rps/play/', (req, res) => {
+    const input = req.body.short; 
+    const play = rpsls(input); 
+    res.status(200).send(play); 
+})
 
 
 
