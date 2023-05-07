@@ -15,8 +15,13 @@ app.get("/app/", (req, res, next) => {
 // Endpoint for RPS with no input. 
 app.get('/app/rps/', (req, res) => {
     const play = rps(); 
-    res.status(200).json(play); 
+    res.status(200).send(play); 
 }); 
+
+app.get('/app/rpsls/', (req, res) => {
+    const play = rpsls(); 
+    res.status(200).send(play); 
+})
 
 // Default API endpoint
 app.use(function(req, res) {
