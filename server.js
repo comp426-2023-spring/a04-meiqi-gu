@@ -12,7 +12,7 @@ app.get("/app/", (req, res, next) => {
     res.status(200).end('200 OK'); 
 }); 
 
-// Endpoint for RPS with no input. 
+// Endpoint for RPS & RPSLS with no input. 
 app.get('/app/rps/', (req, res) => {
     const play = rps(); 
     res.status(200).send(play); 
@@ -20,6 +20,17 @@ app.get('/app/rps/', (req, res) => {
 
 app.get('/app/rpsls/', (req, res) => {
     const play = rpsls(); 
+    res.status(200).send(play); 
+}); 
+
+// Endpoint /app/___/play/options/
+app.get('/app/rps/play/:input/', (req, res) => {
+    const play = rps(req.params.input); 
+    res.status(200).send(play); 
+});
+
+app.get('/app/rpsls/play/:input/', (req, res) => {
+    const play = rpsls(req.params.input); 
     res.status(200).send(play); 
 })
 
