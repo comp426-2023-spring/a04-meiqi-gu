@@ -12,6 +12,11 @@ app.get("/app/", (req, res, next) => {
     res.status(200).end('200 OK'); 
 }); 
 
+app.get('/app/rps/', (req, res) => {
+    const play = rps(); 
+    res.status(200).json(play); 
+}); 
+
 // Default API endpoint
 app.use(function(req, res) {
     const statusCode = 404; 
