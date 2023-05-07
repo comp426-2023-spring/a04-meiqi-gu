@@ -26,6 +26,7 @@
   "homepage": "https://github.com/comp426-2023-spring/a04-meiqi-gu#readme",
   "dependencies": {
     "express": "^4.18.2",
+    "fs": "^0.0.1-security",
     "minimist": "^1.2.8"
   }
 }
