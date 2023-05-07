@@ -1,6 +1,6 @@
 import minimist from "minimist";
 import express from "express"; 
-import fs from "fs"; 
+import {rps, rpsls} from "../lib/rpsls.js";
 
 var app = express(); 
 
