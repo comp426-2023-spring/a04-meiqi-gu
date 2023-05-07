@@ -36,7 +36,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.post('/app/rps/play/', (req, res) => {
     const input = req.body.shot;
-    const play = rpsls(input); 
+    const play = rps(input); 
     res.send(play); 
     res.end(); 
 }); 
