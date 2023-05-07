@@ -1,6 +1,6 @@
 import minimist from "minimist";
 import express from "express"; 
-import {rps, rpsls} from "../lib/rpsls.js";
+import {rps, rpsls} from "./lib/rpsls.js";
 
 var app = express(); 
 
@@ -12,6 +12,7 @@ app.get("/app/", (req, res, next) => {
     res.status(200).end('200 OK'); 
 }); 
 
+// Endpoint for RPS with no input. 
 app.get('/app/rps/', (req, res) => {
     const play = rps(); 
     res.status(200).json(play); 
